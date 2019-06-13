@@ -1,0 +1,27 @@
+<view class='main'>
+  <!-- 收集数据表单 -->
+  <form class='tripForm' bindsubmit='formSubmit' bindreset='formReset'>
+    <!-- 行程名称 -->
+    <input name="name" type='text' placeholder='行程名称'></input>
+
+    <!-- 行程人数 -->
+    <input name="count" type='number' placeholder='行程人数'></input>
+
+    <!-- 行程日期 -->
+    <picker mode="date" value='{{tripDate}}' start='{{nowDate}}' bindchange='getTripDate'>
+      <input name="tripDate" type='text' value='{{tripDate}}' placeholder='行程日期' disabled></input>
+    </picker>
+
+    <!-- 行程描述 -->
+    <textarea name="description" placeholder='行程描述'></textarea>
+    
+    <!-- 提交按钮 -->
+    <view class='submitButton'>
+      <button form-type='submit'> 提 交 </button>
+      <button form-type='reset'> 重 置 </button>
+    </view>
+  </form>
+  <view class='tip'>
+    <text>{{tip}}</text>
+  </view>
+</view>

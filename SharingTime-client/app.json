@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/createTrip/createTrip",
+    "pages/shareTrip/shareTrip",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "共享时间",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

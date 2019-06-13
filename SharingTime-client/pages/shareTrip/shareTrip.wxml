@@ -1,0 +1,13 @@
+<!--pages/shareTrip/shareTrip.wxml-->
+<view class='mian'>
+  <!-- 行程内容 -->
+  <view class='trip'>
+    <!-- 行程名称 -->
+
+    <!-- 行程人数 -->
+
+    <!-- 行程日期 -->
+
+    <!-- 行程描述 -->
+  </view>
+</view>
