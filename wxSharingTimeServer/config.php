@@ -5,16 +5,16 @@
 
 return [
     'login' => [
-        'APPID' => 'wxee1b983eff18cad1',
-        'APPSECRET' => '3fe93c1551957fffebe6dae233d1c281',
+        'APPID' => '',
+        'APPSECRET' => '',
         'url' => 'https://api.weixin.qq.com/sns/jscode2session',
         'grant_type' => 'authorization_code',
     ],
     
     'DB_CONNECT' => [
         'host' => 'localhost',
-        'user' => 'wx_SharingTime',
-        'psd' => 'gui!wxsharingtime2',
+        'user' => '',
+        'psd' => '',
         'dename' => 'wx_SharingTime',
         'port' => '3306',
     ],

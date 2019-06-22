@@ -5,6 +5,13 @@ require './function.php';
 $code = $_GET['code'];
 $login = C('login');
 
+/**
+ * 注册用户
+ */
+function register($openid) {
+    insertUser($openid);
+}
+
 $params = array('appid' => $login['APPID'], 'secret' => $login['APPSECRET'], 'js_code' => $code, 'grant_type' => $login['grant_type']);
 $result = do_get2($login['url'], $params);
 
