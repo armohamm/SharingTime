@@ -1,7 +1,12 @@
 <view class='main'>
+  <!-- 分享小程序 -->
+  <view class='share'>
+    <button class='shareButton' open-type='share'> {{shareButtonText}} </button>
+  </view>
+
   <!-- 创建行程 -->
   <view class='trip'>
-    <button class='creatTrip' bindtap='toCreateTrip'> {{buttonText}} </button>
+    <button class='creatTrip' bindtap='toCreateTrip'> {{tripButtonText}} </button>
   </view>
 
   <!-- 小程序操作演示 -->

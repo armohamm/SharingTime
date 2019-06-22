@@ -9,6 +9,7 @@ App({
     let that = this;
 
     that.doLogin();
+    // console.log('userOpenid', wx.getStorageSync("userOpenid"));
   },
 
   // 封装登录方法
@@ -26,8 +27,8 @@ App({
             success: function(res) {
               // console.log(res);
               if(res.data.code == '0'){
-                that.globalData.userOpenid = res.data.openid;
-                // console.log(that.globalData);
+                wx.setStorageSync('userOpenid', res.data.openid);
+                // console.log('userOpenid', wx.getStorageSync('userOpenid'));
               } else {
                 that.showInfo(res.data.code + res.data.errmsg);
               }
@@ -75,6 +76,6 @@ App({
   },
 
   globalData: {
-    userOpenid: ''
+    userOpenid: null
   }
 })

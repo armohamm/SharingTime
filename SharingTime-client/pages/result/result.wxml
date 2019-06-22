@@ -1,0 +1,31 @@
+<!--pages/result/result.wxml-->
+<view class='main'>
+  <block wx:if='{{isJoin == 0}}'>
+    <view class='explain'>您未参与此行程，请</view>
+    <view class='join'>
+      <button bindtap='joinTrip'>参与行程</button>
+    </view>
+  </block>
+  <block wx:elif='{{isJoin == 1}}'>
+    <!-- 行程内容 -->
+    <view class='content'>
+      <view class='name'>{{name}}</view>
+      <view class='count'>{{currentCount}}/{{count}}</view>
+    </view>
+    <!-- 行程结果 -->
+    <view class='result'>
+      <view class='header'>
+        <view class='startTime'>开始时间</view>
+        <view class='rod'>—</view>
+        <view class='endTime'>结束时间</view>
+        <view class='userCount'>用户数</view>
+      </view>
+      <view class='result-item' wx:for='{{result}}' wx:key='index'>
+        <view class='startTime'>{{item.startTime}}</view>
+        <view class='rod'>—</view>
+        <view class='endTime'>{{item.endTime}}</view>
+        <view class='userCount'>{{item.userCount}}</view>
+      </view>
+    </view>
+  </block>
+</view>

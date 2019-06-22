@@ -1,0 +1,56 @@
+/* pages/trip/trip.wxss */
+
+/* 导航栏 */
+.nav {
+  display: flex;
+  width: 100%;
+  margin: 10rpx 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item {
+  padding: 20rpx 45rpx;
+  font-size: 30rpx;
+  display: inline-block;
+}
+.nav-item.active {
+  border-bottom: 5rpx solid #de688b;
+}
+
+/* 内容面板 */
+.trips {
+  width: 100%;
+  margin-top: 30rpx;
+}
+.trips-item, .readme{
+  margin: 40rpx 30rpx;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid green;
+}
+.trip-name, .trip-count{
+  display: flex;
+  padding: 10rpx 20rpx;
+}
+.trip-name {
+  flex: 5;
+}
+.trip-count {
+  flex: 2;
+}
+.trip-name .name {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.readme {
+  padding: 10rpx;
+}

@@ -1,0 +1,28 @@
+<!--pages/tripContent/tripContent.wxml-->
+<view class='main'>
+  <!-- 行程内容 -->
+  <view class='trip'>
+    <!-- 行程名称 -->
+    <view class='name'>行程名称：<text>{{name}}</text></view>
+    <!-- 行程人数 -->
+    <view class='count'>行程人数：<text>{{count}}</text> 人<block wx:if='{{isOwner == 1}}'>，参与人数：<text>{{currentCount}}</text> 人</block></view>
+    <!-- 行程日期 -->
+    <view class='tripDate'>行程日期：<text>{{tripDate}}</text></view>
+    <!-- 行程描述 -->
+    <view class='description'>
+      行程描述：<text>{{description}}</text>
+    </view>
+  </view>
+  <!-- 分享行程 -->
+  <view class='share' wx:if='{{isOwner == 1}}'>
+    <button open-type='share'>分享行程</button>
+  </view>
+  <!-- 参与行程 -->
+  <view class='join'>
+    <button bindtap='joinTrip'>参与行程</button>
+  </view>
+  <!-- 查看行程结果 -->
+  <view class='result'>
+    <button bindtap='getResult'>查看结果</button>
+  </view>
+</view>

@@ -10,11 +10,12 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wxee1b983eff18cad1",
+	"appid": "wxd465c6d47938544c",
 	"projectname": "SharingTime-client",
 	"debugOptions": {
 		"hidedInDevtools": []

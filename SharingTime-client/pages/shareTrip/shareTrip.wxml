@@ -3,11 +3,22 @@
   <!-- 行程内容 -->
   <view class='trip'>
     <!-- 行程名称 -->
-
+    <view class='name'>行程名称：<text>{{info.name}}</text></view>
     <!-- 行程人数 -->
-
+    <view class='count'>行程人数：<text>{{info.count}}</text> 人</view>
     <!-- 行程日期 -->
-
+    <view class='tripDate'>行程日期：<text>{{info.tripDate}}</text></view>
     <!-- 行程描述 -->
+    <view class='description'>
+      行程描述：<text>{{info.description}}</text>
+    </view>
+  </view>
+  <!-- 分享行程 -->
+  <view class='share'>
+    <button open-type='share'>分享行程</button>
+  </view>
+  <!-- 参与行程 -->
+  <view class='join'>
+    <button bindtap='joinTrip'>参与行程</button>
   </view>
 </view>

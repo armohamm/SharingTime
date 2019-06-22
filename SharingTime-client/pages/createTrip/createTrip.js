@@ -29,10 +29,12 @@ Page({
       tipT = '提示：' + ((info.name == '') ? '名称、' : '') + ((info.count == '') ? '人数、' : '') + ((info.tripDate == '') ? '日期、' : '') + ((info.description == '') ? '描述' : '') + '不能为空';
     }
     if(tipT == '') {
-      if(info.name.length > 10) {
-        tipT += '提示：行程名称长度不要超过10';
+      if(info.name.length > 15) {
+        tipT += '提示：行程名称长度不要超过15';
       } else if(isNaN(info.count)){
         tipT += '提示：行程人数不是一个数字';
+      } else if (info.count < 2) {
+        tipT += '提示：行程人数小于2';
       } else if (info.count > 20){
         tipT += '提示：行程人数不超过20';
       } else if(info.tripDate.length > 10){
@@ -49,7 +51,7 @@ Page({
       wx.request({
         url: config.createTripUrl,
         data: {
-          openid: app.globalData.userOpenid,
+          openid: wx.getStorageSync('userOpenid'),
           name: info.name,
           count: info.count,
           tripDate: info.tripDate,
@@ -59,23 +61,22 @@ Page({
           // console.log(res);
 
           if(res.data.code == '0'){
+            let dataT = {
+              tripId: res.data.tripId,
+              name: info.name,
+              count: info.count,
+              tripDate: info.tripDate,
+              description: info.description
+            };
             wx.redirectTo({
-              url: '../shareTrip/shareTrip',
-              data: {
-                tripId: res.data.tripId,
-                tripUserId: res.data.tripUserId,
-                name: info.name,
-                count: info.count,
-                tripDate: info.tripDate,
-                description: info.description
-              }
+              url: '../shareTrip/shareTrip?data=' + JSON.stringify(dataT)
             })
           } else {
             that.showInfo(res.data.code + res.data.errmsg);
           }
         },
         fail: function() {
-          // flag
+          that.showInfo("F104:创建行程失败");
         }
       })
 
@@ -107,58 +108,18 @@ Page({
   onLoad: function (options) {
     let that = this;
 
+    if (!wx.getStorageSync("userOpenid")) {
+      app.doLogin();
+      // console.log('userOpenid', wx.getStorageSync("userOpenid"));
+    }
+
+    // 取消右上角分享功能
+    wx.hideShareMenu();
+
     // 获取设置当前时间
     that.setData({
       nowDate: util.formatTimeYMD
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

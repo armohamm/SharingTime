@@ -1,0 +1,13 @@
+<!--pages/readme/readme.wxml-->
+<view class='main'>
+  <text class='explain'>此小程序由一本科生团队完成，团队共有8人，目的是为了完成课程项目开发。目前小程序为1.0版本，由于开发时间有限，项目存在一些漏洞，在此先向用户致歉，后期开发者会对小程序架构重新设计，以及代码重构。小程序是以增量模式进行开发，我们会不断对小程序进行完善，添加一些更好的功能。欢迎各位用户使用此小程序，在使用过程中，有任何问题以及对小程序的建议都可在下方提出，我们会做出改善以及解答。</text>
+  <form class='form' bindsubmit='formSubmit'>
+    <textarea class='message' name='message' placeholder='对开发者说的一些话'></textarea>
+    <input type='text' class='contact' name='contact' placeholder='联系方式(邮箱or微信..)'></input>
+    <button class='submitBtn' form-type='submit'> 提 交 </button>
+  </form>
+  <view class='tip'>
+    <text>{{tip}}</text>
+  </view>
+  <text class='email'>开发者邮箱：yingguizhang@126.com</text>
+</view>

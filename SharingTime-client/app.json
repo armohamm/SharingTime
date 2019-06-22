@@ -1,14 +1,34 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/trip/trip",
     "pages/createTrip/createTrip",
     "pages/shareTrip/shareTrip",
-    "pages/index/index"
+    "pages/joinTrip/joinTrip",
+    "pages/tripContent/tripContent",
+    "pages/result/result",
+    "pages/readme/readme"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "共享时间",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./images/index.png",
+      "selectedIconPath": "./images/index_active.png"
+    },
+    {
+      "pagePath": "pages/trip/trip",
+      "text": "行程",
+      "iconPath": "./images/trip.png",
+      "selectedIconPath": "./images/trip_active.png"
+    }]
   },
   "sitemapLocation": "sitemap.json"
 }

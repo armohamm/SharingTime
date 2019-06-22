@@ -1,5 +1,6 @@
 // pages/shareTrip/shareTrip.js
 const app = getApp();
+const config = require("../../config/config.js");
 
 Page({
 
@@ -7,56 +8,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    info: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("分享行程");
-    console.log(options);
+    let that = this;
+
+    if (!wx.getStorageSync("userOpenid")) {
+      app.doLogin();
+      // console.log('userOpenid', wx.getStorageSync("userOpenid"));
+    }
+
+    // 获取创建行程的数据
+    that.setData({
+      info: JSON.parse(options.data)
+    });
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 参与行程
+   * 跳转 参与行程 页面
    */
-  onReady: function () {
+  joinTrip: function () {
+    let that = this;
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+    wx.navigateTo({
+      url: '../joinTrip/joinTrip?tripId=' + that.data.info.tripId,
+    });
 
   },
 
@@ -64,6 +45,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    let that = this;
 
+    return {
+      title: that.data.info.name,
+      path: 'pages/tripContent/tripContent?params=' + that.data.info.tripId
+    }
   }
 })

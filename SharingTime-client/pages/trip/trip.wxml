@@ -1,0 +1,27 @@
+<!--pages/trip/trip.wxml-->
+<view class='main'>
+  <!-- 导航栏 -->
+  <view class='nav'>
+    <view class="nav-item {{currentShow===index?'active':''}}" bindtap='activeNav' data-index='{{index}}' wx:for="{{navList}}" wx:key="{{index}}">{{item}}</view>
+  </view>
+
+  <!-- 内容面板 -->
+  <view class='trips'>
+    <navigator class='trips-item' wx:for="{{trip[currentShow]}}" wx:key='{{index}}' url='../tripContent/tripContent?tripId={{item.tripId}}'>
+      <!-- 行程名称 -->
+      <view class='trip-name'>
+        <view class='name'>{{item.name}}</view>
+      </view>
+      <!-- 行程完成情况 -->
+      <view class='trip-count'>
+        <text>{{item.currentCount}}</text>
+        /
+        <text>{{item.count}}</text>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- readme -->
+  <navigator class='readme' url='../readme/readme'>关于小程序</navigator>
+
+</view>

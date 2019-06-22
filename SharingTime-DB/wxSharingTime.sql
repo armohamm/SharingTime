@@ -51,6 +51,26 @@ CREATE USER 'wx_SharingTime'@'%' IDENTIFIED WITH mysql_native_password AS '***';
 		endTime			varchar(6)
 */
 
+
+/**
+	创建数据库 result
+	字段
+		tripId 			int
+		startTime		varchar(6)
+		endTime			varchar(6)
+		userCount		int 			用户数量
+*/
+
+
+/**
+	创建数据库 message
+	字段
+		id 				int 			唯一标识				auto_increment
+		message			varchar(300)
+		contact			varchar(40)
+*/
+
+
 /**
 
 自增sql语句

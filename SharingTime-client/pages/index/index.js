@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    buttonText: '+创建行程',
+    tripButtonText: '+创建行程',
+    shareButtonText: '分享小程序',
     demoImageSrc: '../../images/demo.png'
   },
 
@@ -14,7 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    if (!wx.getStorageSync("userOpenid")) {
+      app.doLogin();
+      // console.log('userOpenid', wx.getStorageSync("userOpenid"));
+    }
   },
 
   // 跳转到 创建行程 页面
@@ -69,7 +73,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function (options) {
+    // console.log('options', options);
+    return {
+      title: '共享时间',
+      path: 'pages/index/index',
+      imageUrl: '../../images/sharingTime.png'
+    }
   }
 })

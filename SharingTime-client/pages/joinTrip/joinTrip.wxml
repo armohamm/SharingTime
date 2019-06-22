@@ -1,0 +1,47 @@
+<!--pages/joinTrip/joinTrip.wxml-->
+<view class='.main'>
+  <block wx:if="{{isJoin == 0}}">
+    <!-- 头部 -->
+    <view class='header'>
+      <view class='startTime'>开始时间</view>
+      <view class='rod'>—</view>
+      <view class='endTime'>结束时间</view>
+    </view>
+    <!-- 添加时间 -->
+    <view class='time' wx:for='{{arr}}' wx:key='index'>
+      <view class='startTime'>
+        <picker id='{{item*2}}' mode="time" bindchange='getTime'>
+          <input class='inputTime' value='{{startTime[item]}}' type='text' placeholder='开始时间' disabled></input>
+        </picker>
+      </view>
+      <view class='rod'>—</view>
+      <view class='endTime'>
+        <picker id='{{item*2 + 1}}' mode="time" start='{{startTime[item]}}' bindchange='getTime'>
+          <input class='inputTime' value='{{endTime[item]}}' type='text' placeholder='结束时间' disabled></input>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 提示 -->
+    <view class='tip'>{{tip}}</view>
+
+    <!-- 添加时间按钮 -->
+    <view class='add'>
+      <button bindtap='addTime'>+</button>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class='submit'>
+      <button bindtap='submit'>提交</button>
+    </view>
+  </block>
+  <block wx:elif="{{isJoin == 1}}">
+    <view class='explain'>
+      此行程您已经参与
+    </view>
+    <view class='again'>
+      <button bindtap='modifyData'>重新参与行程</button>
+    </view>
+  </block>
+
+</view>

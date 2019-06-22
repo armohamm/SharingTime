@@ -1,4 +1,4 @@
-/* pages/shareTrip/shareTrip.wxss */
+/* pages/tripContent/tripContent.wxss */
 
 /* 行程内容 */
 .trip {
@@ -16,7 +16,8 @@
 
 /* 分享行程 */
 /* 参与行程 */
-.share, .join{
+/* 查看行程结果 */
+.share, .join, .result{
   width: 100%;
   display: flex;
   align-items: center;
