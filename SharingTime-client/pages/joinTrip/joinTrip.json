@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "参与行程",
-  "usingComponents": {}
+  "usingComponents": {
+    "index": "/component/index/index"
+  }
 }

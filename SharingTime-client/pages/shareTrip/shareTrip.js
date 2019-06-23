@@ -49,7 +49,7 @@ Page({
 
     return {
       title: that.data.info.name,
-      path: 'pages/tripContent/tripContent?params=' + that.data.info.tripId
+      path: 'pages/tripContent/tripContent?tripId=' + that.data.info.tripId
     }
   }
 })

@@ -10,7 +10,7 @@
     <!-- 添加时间 -->
     <view class='time' wx:for='{{arr}}' wx:key='index'>
       <view class='startTime'>
-        <picker id='{{item*2}}' mode="time" bindchange='getTime'>
+        <picker id='{{item*2}}' mode="time" start='00:00' bindchange='getTime'>
           <input class='inputTime' value='{{startTime[item]}}' type='text' placeholder='开始时间' disabled></input>
         </picker>
       </view>
@@ -45,3 +45,4 @@
   </block>
 
 </view>
+<index></index>

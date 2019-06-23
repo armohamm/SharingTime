@@ -22,3 +22,4 @@
     <button bindtap='joinTrip'>参与行程</button>
   </view>
 </view>
+<index></index>

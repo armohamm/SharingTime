@@ -172,19 +172,19 @@ Page({
           timeData: timeDataT
         },
         success(res) {
-          // console.log('successRes', res);
+          console.log('joinTripSubmitSuccessRes', res);
           if(res.data.code == '0'){
             wx.redirectTo({
               url: '../result/result?tripId=' + that.data.tripId,
             })
           } else {
-            app.showInfo('提交失败，请重试');
+            app.showInfo('F104提交失败，请重试');
           }
           
         },
         fail(res) {
           // console.log('failRes', res);
-          app.showInfo('提交失败，请重试');
+          app.showInfo('F105提交失败，请重试');
         }
       })
     }
