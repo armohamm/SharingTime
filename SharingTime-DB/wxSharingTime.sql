@@ -29,6 +29,7 @@ CREATE USER 'wx_SharingTime'@'%' IDENTIFIED WITH mysql_native_password AS '***';
 		count			int 			行程人数
 		date 			varchar(10)		行程日期
 		description		varchar(300)	行程描述
+alter table trip change tripId tripId int primary key auto_increment;
 */
 
 
@@ -38,7 +39,8 @@ CREATE USER 'wx_SharingTime'@'%' IDENTIFIED WITH mysql_native_password AS '***';
 		tripUserId		int 			唯一标识				auto_increment
 		tripId 			int
 		openid			varchar(40)
-		isOwner			int 			用户是否拥有次行程 	0标识不拥有，1表示拥有
+		isOwner			int 			用户是否拥有此行程 	0标识不拥有，1表示拥有
+alter table tripuser change tripUserId tripUserId int primary key auto_increment;
 */
 
 
@@ -49,6 +51,7 @@ CREATE USER 'wx_SharingTime'@'%' IDENTIFIED WITH mysql_native_password AS '***';
 		tripUserId		int
 		startTime		varchar(6)
 		endTime			varchar(6)
+alter table data change dataId dataId int primary key auto_increment;
 */
 
 
@@ -68,6 +71,7 @@ CREATE USER 'wx_SharingTime'@'%' IDENTIFIED WITH mysql_native_password AS '***';
 		id 				int 			唯一标识				auto_increment
 		message			varchar(300)
 		contact			varchar(40)
+alter table message change id id int primary key auto_increment;
 */
 
 
