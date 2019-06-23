@@ -1,0 +1,4 @@
+<!--component/index/index.wxml-->
+<view class='index'>
+  <view class='index-item1' hover-class='index-item2' bindtap='toIndex'>首页</view>
+</view>
