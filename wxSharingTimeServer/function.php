@@ -103,8 +103,9 @@ function insertTrip($name, $count, $date, $description) {
  * 插入tripUser
  * 返回 tripUserId
  */
-function insertTripuser($tripId, $openid, $isOwner = 0) {
-    $sql = "insert into `tripuser` values(null, {$tripId}, '{$openid}', $isOwner) ";
+
+ function insertTripuser($tripId, $openid, $isOwner = 0) {
+    $sql = "insert into `tripuser` values(null, {$tripId}, '{$openid}', {$isOwner}) ";
     $result = db_exec(DB_AFFECTED, $sql);
     $sql = "select max(tripUserId) from `tripuser` ";
     return db_fetch(DB_COLUMN, $sql);
@@ -170,10 +171,10 @@ function getData($tripUserId) {
  */
 function getTripUserId($openid, $tripId){
     // 查询是否存在
-    $sql = "select tripUserId from `tripuser` where openid = '{$openid}' and tripId = '{$tripId}' ";
+    $sql = "select tripUserId from `tripuser` where openid = '{$openid}' and tripId = {$tripId} ";
     $tripUserId = db_fetch(DB_COLUMN, $sql);
-    if($tripUserId == 0) {
-        $tripUserId = insertTripuser($openid, $tripId);
+    if($tripUserId == false) {
+        $tripUserId = insertTripuser($tripId, $openid);
     }
     return $tripUserId;
 }
@@ -210,7 +211,7 @@ function getTrips($openid, $name = 0, $count = 0,  $date = 0, $description = 0, 
 
     if($data == 0)
         $sql .= " and isOwner = 0";
-    else if($date == 1)
+    else if($data == 1)
         $sql .= " and isOwner = 1";
 
     $sql .= " )";
